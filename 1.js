@@ -23,8 +23,10 @@ function convertArrayToObject(students) {
 
   for (let i = 0; i < students.length; i++) {
     const obj = { ...students[i] }
+    obj["name"] = obj[0]
+    obj["skills"] = obj[1]
+    obj["scores"] = obj[2]
     console.log(obj)
-    return obj
   }
 }
-console.log(convertArrayToObject(students))
+convertArrayToObject(students)
