@@ -20,13 +20,21 @@ function convertArrayToObject(students) {
   //     const { key, value } = students[i]
   //     obj[key] = value
   //   }
-
+  let array = []
   for (let i = 0; i < students.length; i++) {
-    const obj = { ...students[i] }
-    obj["name"] = obj[0]
-    obj["skills"] = obj[1]
-    obj["scores"] = obj[2]
-    console.log(obj)
+    let obj = { ...students[i] }
+    obj = {
+      name: obj[0],
+      skills: obj[1],
+      scores: obj[2],
+    }
+    // const object = { ...obj }
+    // object[0] = object["name"]
+    // object["skills"] = object[1]
+    // object["scores"] = object[2]
+    // console.log(obj)
+    array.push(obj)
   }
+  return array
 }
-convertArrayToObject(students)
+console.log(convertArrayToObject(students))
