@@ -121,18 +121,39 @@ function rateProduct(_id, ratingValue) {
 // console.log(rateProduct("eedfcf", { userId: "fgth", rate: 5 }))
 
 function averageRating(_id) {
-  return products.map((product) => {
+  let rating = 0
+  products.map((product) => {
+    let sumOfRating = 0
+    let numberOfRating = product.ratings.length
+    if (numberOfRating === 0) {
+      return 0
+    }
+    console.log("numberOfRating", numberOfRating)
     if (product._id === _id) {
-      let sumOfRating = 0
-      let numberOfRating = product.ratings.length
-      // console.log(numberOfRating)
       for (let i = 0; i < numberOfRating; i++) {
-        //i=0
+        //i=0 //for id=eedfcf //rating=4.5 and 5 //sum = 9.5 //
         sumOfRating += product.ratings[i].rate
-        console.log(sumOfRating)
+        console.log("sumOfRating", sumOfRating)
       }
-      return (averageRating = sumOfRating / numberOfRating)
+      rating = sumOfRating / numberOfRating
     }
   })
+  return rating
 }
-console.log(averageRating("eedfcf"))
+// console.log(averageRating("aegfal"))
+
+//2c
+function likeProduct(_id, userId) {
+  return products.map((product) => {
+    //map changes the index of existing array and returns a modified version of old array
+    //to return whole sadnm functionte return
+    if (product._id === _id) {
+      // console.log(typeof product.likes)
+      product.likes.includes(userId)
+        ? console.log("already liked")
+        : product.likes.push(userId)
+    }
+    return product //orooro indexil matan
+  })
+}
+console.log(likeProduct("eedfcf", "ranji"))
