@@ -125,8 +125,11 @@ function averageRating(_id) {
     if (product._id === _id) {
       let sumOfRating = 0
       let numberOfRating = product.ratings.length
-      for (let i = 0; i < product.ratings.length; i++) {
+      // console.log(numberOfRating)
+      for (let i = 0; i < numberOfRating; i++) {
+        //i=0
         sumOfRating += product.ratings[i].rate
+        console.log(sumOfRating)
       }
       return (averageRating = sumOfRating / numberOfRating)
     }
