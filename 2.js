@@ -72,24 +72,25 @@ const products = [
 ]
 function signUp(newUser) {
   let array = users.filter((user) => {
-    return user.email === newUser.email
+    return user.email === newUser.email //compares the input value with the existing
   })
   if (!array.length) {
+    //if no such user found pushes to the users
     users.push(newUser)
   } else {
     console.log("user already exists")
   }
   return users
 }
-console.log(
-  signUp({
-    _id: "1234",
-    username: "ranjitha",
-    email: "ranji@gmail.com",
-    password: "1234",
-    createdAt: Date(),
-  })
-)
+// console.log(
+//   signUp({
+//     _id: "1234",
+//     username: "ranjitha",
+//     email: "ranji@gmail.com",
+//     password: "1234",
+//     createdAt: Date(),
+//   })
+// )
 function signIn(loginUser) {
   let array = users.filter((user) => {
     return (
@@ -102,7 +103,33 @@ function signIn(loginUser) {
     console.log("invalid email or password")
   }
 }
-signIn({
-  email: "ranji@gmail.com",
-  password: "1234",
-})
+// signIn({
+//   email: "ranji@gmail.com",
+//   password: "1234",
+// })
+
+//b
+function rateProduct(_id, ratingValue) {
+  return products.map((product) => {
+    if (product._id === _id) {
+      product.ratings.push(ratingValue)
+    }
+    return products[0].ratings
+    // return product
+  })
+}
+// console.log(rateProduct("eedfcf", { userId: "fgth", rate: 5 }))
+
+function averageRating(_id) {
+  return products.map((product) => {
+    if (product._id === _id) {
+      let sumOfRating = 0
+      let numberOfRating = product.ratings.length
+      for (let i = 0; i < product.ratings.length; i++) {
+        sumOfRating += product.ratings[i].rate
+      }
+      return (averageRating = sumOfRating / numberOfRating)
+    }
+  })
+}
+console.log(averageRating("eedfcf"))
