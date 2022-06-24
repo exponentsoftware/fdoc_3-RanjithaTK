@@ -16,3 +16,4 @@ function divisibleByTwo(array) {
   })
 }
 console.log(divisibleByTwo(numbers))
+// console.log(divisibleByTwo(numbers))
